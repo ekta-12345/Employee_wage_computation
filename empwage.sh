@@ -1,9 +1,12 @@
 echo "Welcome to Employee Wage Computation Program "
 EmpPresent=1
+Wagepr_hr=20
+Fullday_hr=8
 random=$(($RANDOM%2))
 if [ $random -eq $EmpPresent ]
 then
-   echo "Employee is Present"
+    Dailywage=$(( $Wagepr_hr * $Fullday_hr ))
+    echo "Daily wage of Employee is:" $Dailywage
 else
    echo "Employee is Absent"
 fi
