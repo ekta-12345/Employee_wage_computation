@@ -1,15 +1,20 @@
 echo "Welcome to Employee Wage Computation Program "
 isfulltime=1
 ispartime=2
+nof_days=20
 Wagepr_hr=20
-totalsalary=0
-nof_wdays=20
+maxworking_hrs=100
 
-for (( day=1 ; day<=$nof_wdays ; day++ ))
+
+totalemphrs=0
+totaldays=0
+
+while [[ $totalemphrs -lt $maxworking_hrs && $totaldays -lt $nof_days ]]
 do
-random=$(($RANDOM%3))
+   ((totaldays ++))
+   random=$(($RANDOM%3))
 
-case $random in 
+   case $random in 
      $isfulltime)
    	  emp_hrs=8
           ;;
@@ -19,8 +24,8 @@ case $random in
      *)
 	  emp_hrs=0
 	  ;;
-esac
+   esac
+   totalemphrs=$(($totalemphrs+$emp_hrs))
 done
-Salary=$(($emp_hrs*$Wagepr_hr))
-totalsalary=$(($totalsalary+$Salary))
-echo "Total salary of employee is:" $totalsalary
+totalsalary=$(($totalemphrs*$Wagepr_hr))
+echo "total salary till the working days reach 20 or workinh hours reach 100:" $totalsalary
