@@ -24,3 +24,4 @@ done
 Salary=$(($emp_hrs*$Wagepr_hr))
 totalsalary=$(($totalsalary+$Salary))
 echo "Total salary of employee is:" $totalsalary
+echo "salary of employee is:" $Salary
